@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" type="image/png" href="{{ url_for('static', filename='images/favicon.png') }}">
+
+        <title>Smart City Login</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <section style="height: 100vh;">
+            <div>
+                <div class="logo">
+                    <img src="{{ url_for('static', filename='images/smart-city.png') }}" class="smart-city">
+                </div>
+                <p class="sottotitolo"> Travel confortably
+                    <img src="{{ url_for('static', filename='images/point.png') }}" class="point">
+                </p>
+                <section class="padding">
+                    <form action="" method="post" novalidate>
+                        {{ form.hidden_tag() }}
+                        <div class="divlogin">
+                            <div class="login">Login for new experience</div>
+                            <hr style="border: 1px solid #ccc;">
+                            <div class="inner-div">
+                                <div class="flex">
+                                    <img src="{{ url_for('static', filename='images/bus.png') }}" class="bus img">
+                                    {{ form.username(size=32, placeholder="Username") }}<br>
+                                    {% for error in form.username.errors %}
+                                    <span style="color: red;">[{{ error }}]</span>
+                                    {% endfor %}
+                                </div>
+                                <div class="flex pass">
+                                    <img src="{{ url_for('static', filename='images/city.png') }}" class="city img">
+                                    {{ form.password(size=32, placeholder= "•••••••••••") }}<br>
+                                    {% for error in form.password.errors %}
+                                    <span style="color: red;">[{{ error }}]</span>
+                                    {% endfor %}
+                                </div>
+                                <div class=" remember">
+                                    <p id="remember_me" style="position: center;">
+
+                                        {{ form.remember_me() }}</p>
+                                    <p style="font-size:14.5px;">Keep me in</p>
+                                </div>
+                                <div class="flex signin">
+                                    <img src="{{ url_for('static', filename='images/white.png') }}" class="white img">
+                                <p class="butonlogin">{{ form.submit() }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <div class="d-flex justify-content-center links">
+                                <p>Don't have an account?<a href="{{ url_for('register') }}" class="ml-2">Sign Up</a></p>
+                            </div>
+                            <div class="d-flex justify-content-center links">
+                                <p>Forgot Your Password? <a href="{{ url_for('reset_password_request') }}">Click to Reset It</a></p>
+                            </div>
+                        </div>
+                    </form>
+                </section><br>
+                <div class="footer-basic">
+                    <footer>
+                        <div class="social"><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-facebook"></i></a></div>
+                        <ul class="list-inline">
+                            <li class="list-inline-item"><a href="#">Smart City</a></li>
+                            <li class="list-inline-item"><a href="#">Home</a></li>
+                            <li class="list-inline-item"><a href="#">About</a></li>
+                            <li class="list-inline-item"><a href="#">Contact Us</a></li>
+                            <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+                        </ul>
+                        <p class="copyright">Smart City © 2022</p>
+                    </footer>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>

@@ -1,0 +1,160 @@
+{% extends "base.html" %}
+
+{% block styles %}
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css"> <!-- footer icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- bici -->
+	<link rel="stylesheet" href=" {{ url_for('static', filename='css/explore.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}">
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
+	<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.76.0/dist/L.Control.Locate.min.css" />
+	<script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.76.0/dist/L.Control.Locate.min.js" charset="utf-8"></script>
+{% endblock %}
+
+{% block app_content %}
+
+<section style="height: 100vh;">
+    <div>
+		<h1 class="t">Start your trip, <a id="username">{{ current_user.username }}</a>!</h1>
+    </div>
+    <div>
+		<div id="mapid" style="height: 520px;"></div>
+    </div>
+</section>
+
+
+
+{% endblock %}
+
+
+{% block scripts %}
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.76.0/dist/L.Control.Locate.min.js" charset="utf-8"></script>
+
+<script>
+
+	var map = L.map('mapid', {doubleClickZoom: true}).locate({setView: true, maxZoom: 20});
+	L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+   				attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+			}).addTo(map);
+
+	var lc = L.control.locate({
+		setView: 'untilPanOrZoom',
+		keepCurrentZoomLevel: false,
+		initialZoomLevel: false,
+		flyTo: true,
+   		position: 'topright',
+    	strings: {
+        	title: "Show me where I am, yo!"
+    	},
+		clickBehavior: {
+                /** What should happen if the user clicks on the control while the location is within the current view. */
+                inView: 'stop',
+                /** What should happen if the user clicks on the control while the location is outside the current view. */
+                outOfView: 'setView',
+                /**
+                 * What should happen if the user clicks on the control while the location is within the current view
+                 * and we could be following but are not. Defaults to a special value which inherits from 'inView';
+                 */
+                inViewNotFollowing: 'inView',
+            }
+	}).addTo(map);
+
+	//get username
+	const username = document.getElementById("username").innerText;
+	const url_location = '/get_saved_locations/' + username
+
+	//get user saved locations
+	//try $.getJSON
+	$.getJSON(url_location, response => {
+		for (let i = 0; i < response.length; ++i) {
+					const latitude = response[i]["latitude"];
+					const longitude = response[i]["longitude"];
+					const name = response[i]["name"];
+					const address = response[i]["address"];
+					const body = response[i]["body"];
+					const city = response[i]["city"];
+					const country = response[i]["country"];
+
+					console.log(address);
+					console.log(city);
+					console.log(country);
+					console.log(body);
+
+					const content = '<p> ' + name + '<br>' +
+							address + ', ' + city + ', ' + country +  '<br>' +
+							body + '<br> </p>';
+
+					const popup = L.popup()
+								.setContent(content);
+					const marker = L.marker([latitude, longitude])
+							.addTo(map);
+
+					marker.bindPopup(popup).openPopup();
+
+				}
+				console.log(response);
+
+	});
+
+	navigator.geolocation.watchPosition(
+        data => {
+
+			var server_data = [
+				{"latitude": data.coords.latitude},
+				{"longitude": data.coords.longitude},
+			];
+			console.log(server_data);
+
+			//send data to server
+			$.ajax({
+                type: "POST",
+                url: "/process_data",
+                data: JSON.stringify(server_data),
+                contentType: "application/json",
+                dataType: 'json'
+            }).done(
+					response => {
+						console.log(response);
+
+						if (response["exists"] == 0) return;
+						let confirmMessage = confirm("Do you want to see " + response["name"] + "'s page?");
+						if (confirmMessage) {
+							console.log("Redirecting to location page...")
+
+							const url = '/location/' + response["name"]
+
+							window.location.replace(url);
+						} else {
+							console.log("Redirect not allowed.");
+
+						}
+
+
+					}
+			);
+
+		},
+		error => {
+			console.log(error);
+		});
+	/*
+	navigator.geolocation.getCurrentPosition(
+			function (position) {
+				latit = position.coords.latitude;
+    			longit = position.coords.longitude;
+				console.log(latit);
+				console.log(longit);
+    			// move the map to have the location in its center
+    			map.panTo(new L.LatLng(latit, longit));
+			});
+*/
+
+
+</script>
+
+{% endblock %}

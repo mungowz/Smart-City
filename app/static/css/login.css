@@ -1,0 +1,153 @@
+body {
+    background: linear-gradient(90deg, rgb(68, 100, 181) 0%, rgb(68, 100, 181) 0%, rgb(68, 100, 181) 0%);
+
+    background-size: 400% 400%;
+}
+
+@keyframes BackgroundGradient {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    10% {background-position: 0% 50%;}
+}
+
+
+.logo {
+    top: 30px;
+    position: relative;
+    color: #fff;
+    text-align: center;
+    font-family: 'Fira Sans', sans-serif;
+    border-radius: 100px;
+}
+
+.city{
+    border-radius: 6.25rem;
+}
+.divlogin
+{
+    width: 500px;
+    text-align: center;
+    background: rgb(255, 255, 255);
+    height: 410px;
+    padding: 10px;
+    margin: 50px auto;
+    border-radius: 10px;
+}
+.sottotitolo{
+    font-size: 30px;
+    text-align: center;
+    color: #ffffff;
+    font-family: fantasy;
+    line-height: 2.125rem;
+    padding: 35px;
+    margin-top: 19px;
+}
+.point{
+    width: auto;
+    height: 60px;
+    margin-top: -30px;
+}
+
+.login
+{
+    color: #888888;
+    text-align: center;
+    font-size: 22px;
+    margin-top: 5px;
+    font-family: Arvo;
+}
+.bus{
+    width: auto;
+    height: 60px;
+    outline: none;
+    border: none;
+}
+.city{
+    width: auto;
+    height: 60px;
+}
+
+input {
+    width: 50%;
+    height: 40px;
+    margin-top: 30px;
+    border: none;
+    background: #E5E5E5;
+    outline: none;
+    padding: 0 10px;
+    border-radius: 10px;
+}
+.flex {
+    display: flex;
+    margin: 2em;
+    vertical-align: center;
+}
+
+#submit  {
+    background: none !important;
+    color: #ffffff;
+}
+.white {
+    width: auto;
+    height: 60px;
+}
+
+.butonlogin {
+    width: 50%;
+    margin-top: 20px;
+    height: 40px;
+    font-weight: bold;
+    background: #000000;
+    border: none;
+    color: #0000ff;
+    transition: all 250ms;
+    border-radius: 10px;
+}
+.butonlogin:hover
+{
+    background: #4c8da9;
+}
+body
+{
+    margin: 0;
+}
+
+#remember_me {
+    width: 1em;
+    height: 1em;
+    margin-right: 1.5em;
+}
+
+
+.inner-div {
+    vertical-align: center;
+}
+
+.img {
+    margin-right: 3em;
+}
+
+
+.remember {
+    padding-bottom: 0;
+    margin-top: 10px;
+    display: inline-flex;
+
+}
+
+.pass {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+
+.signin {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+#submit {
+    font-family: inherit;
+    font-weight: bold;
+
+}

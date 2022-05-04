@@ -1,0 +1,19 @@
+{
+    "name": "Smart City",
+    "short_name": "Smart City",
+    "description": "Smart City PWA",
+    "icons": [
+      {
+        "src": "images/bus.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ],
+    "lang": "en-US",
+    "start_url": "/index.html",
+    "scope": "/",
+    "id": "/",
+    "display": "standalone",
+    "background_color": "black",
+    "theme_color": "black"
+  }

@@ -1,0 +1,41 @@
+body {
+    background: linear-gradient(90deg, rgb(83, 161, 117) 0%, rgb(108, 138, 99) 35%, rgb(16, 145, 75) 100%);
+    background-size: 400% 400%;
+    animation: BackgroundGradient 20s ease infinite;
+
+}
+@keyframes BackgroundGradient {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    10% {background-position: 0% 50%;}
+}
+
+.hi{
+    margin: 0;
+}
+
+span{
+    font-size:15px;
+}
+a{
+  text-decoration:none;
+  color: #0062cc;
+  border-bottom:2px solid #0062cc;
+}
+.box{
+    padding:60px 0px;
+    padding-top: 0px;
+}
+.box-part{
+    background:#FFF;
+    border-radius:5%;
+    padding:60px 10px;
+    margin:50px 0px;
+}
+.text{
+    margin:20px 0px;
+}
+
+.savedlocation {
+    padding-top: 10px;
+}
