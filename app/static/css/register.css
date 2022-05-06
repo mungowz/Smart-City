@@ -1,15 +1,9 @@
 body {
-    background: linear-gradient(90deg, rgb(83, 161, 117) 0%, rgba(142, 178, 132, 0.83) 35%, rgb(156, 215, 183) 100%);
+    background: linear-gradient(90deg, rgb(68, 100, 181) 0%, rgb(68, 100, 181) 0%, rgb(68, 100, 181) 0%);
 
-    background-size: 400% 400%;
-    animation: BackgroundGradient 20s ease infinite;
-    overflow: hidden;
+    background-size: 500% 500%;
 }
-.pic{
-    height: 10%;
-    width: 30%;
-    border-radius: 30px;
-}
+
 @keyframes BackgroundGradient {
     0% {background-position: 0% 50%;}
     50% {background-position: 100% 50%;}
@@ -22,15 +16,14 @@ body {
     border-color: #e1e1e1;
 }
 .form-control, .btn {
-    border-radius: 3px;
+    border-radius: 1px;
 }
 .signup-form {
     width: 400px;
     margin: 0 auto;
-    padding: 100px 0;
-
-
+    object-position: 50% 50%;
 }
+
 .signup-form form {
     color: #999;
     border-radius: 30px;
@@ -66,12 +59,12 @@ body {
 .signup-form .btn, .signup-form .btn:active {
     font-size: 16px;
     font-weight: bold;
-    background: #19aa8d !important;
+    background: #000000 !important;
     border: none;
     min-width: 140px;
 }
 .signup-form .btn:hover, .signup-form .btn:focus {
-    background: #285e5e !important;
+    background: #4c8da9 !important;
 }
 .signup-form a {
     color: rgba(255, 255, 255, 0.84);
@@ -81,7 +74,7 @@ body {
     text-decoration: none;
 }
 .signup-form form a {
-    color: #19aa8d;
+    color: #0000ff;
     text-decoration: none;
 }
 .signup-form form a:hover {
@@ -101,11 +94,6 @@ body {
     position: absolute;
 }
 
-.form-group .fa-bicycle{
-    font-size: 30px;
-    height: 40px;
-}
-
 #submit {
     background: none !important;
     color: white;
@@ -113,5 +101,4 @@ body {
     border: none;
     font-family: inherit;
     font-weight: bold;
-
 }

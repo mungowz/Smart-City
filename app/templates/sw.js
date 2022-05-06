@@ -11,7 +11,7 @@ let filesToCache = [
     './static/css/resetpwd.css',
     './static/css/user.css',
     './static/images/bus.png',
-    './static/images/favicon.png',
+    './static/images/location.png',
     './static/images/grattacielo.png',
     './static/images/hosp.png',
     './static/images/city.png',
