@@ -26,6 +26,10 @@ section{
     position: relative;
 }
 
+.img {
+    transform: translate(+130%, +0%);
+}
+
 body {
     background: linear-gradient(90deg, rgb(68, 100, 181) 0%, rgb(68, 100, 181) 0%, rgb(68, 100, 181) 0%);
     background-size: 400% 400%;
