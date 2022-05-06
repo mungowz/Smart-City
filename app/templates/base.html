@@ -29,7 +29,7 @@
                     {% if current_user.is_anonymous %}
                         <li class="nav-item" role="presentation"><a class="nav-link" href="{{ url_for('login') }}">Login</a></li>
                     {% else %}
-                        <li class="nav-item" role="presentation" ><a class="nav-link" href="{{ url_for('register') }}"> <i class="fa fa-bicycle" aria-hidden="true"></i></a></li>
+                        <li class="nav-item" role="presentation" ><a class="nav-link" href="{{ url_for('register') }}"> <i img src="{{ url_for('static', filename='images/white-bus.png') }}" class="bus"></i></a></li>
                         <li class="nav-item" role="presentation"><a class="nav-link" href="{{ url_for('index') }}">Home</a></li>
                         <li class="nav-item" role="presentation"><a class="nav-link" href="{{ url_for('explore') }}">Explore</a></li>
                         <li class="nav-item" role="presentation"><a class="nav-link" href="{{ url_for('user', username=current_user.username) }}">Profile</a></li>
