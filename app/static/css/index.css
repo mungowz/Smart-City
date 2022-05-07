@@ -32,8 +32,9 @@ section{
 
 body {
     background: linear-gradient(90deg, rgb(68, 100, 181) 0%, rgb(68, 100, 181) 0%, rgb(68, 100, 181) 0%);
-    background-size: 400% 400%;
-    margin: 0;
+    background-size: 10% 10%;
+    
+    
 }
 @keyframes BackgroundGradient {
     0% {background-position: 0% 50%;}
