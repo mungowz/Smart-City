@@ -38,6 +38,8 @@ a{
 .savedlocation {
     padding-top: 10px;
 }
-.copyright {
-    transform: translate(+10, +40%);
+
+
+.footer-basic {
+    transform: translate(+0, +100%);
 }
