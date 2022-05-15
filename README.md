@@ -4,3 +4,15 @@
 
 ## Progetto di Tecnologie Web  - Università "Parthenope"
 
+Il sistema prende in esame un sistema di trasporto basato su gomma, l’utente che si collegherà al sistema potrà controllare le fermate registate appositamente dal sistema ed orientarsi facilmente durante i suoi viaggi.
+
+
+## DEMO
+
+### Team
+- [Alfredo](https://github.com/mungowz)
+- [Francesco](https://github.com/kekkokalko)
+
+
+Anno Accademico 2021/2022
+
