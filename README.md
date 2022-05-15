@@ -11,7 +11,7 @@ Il sistema prende in esame un sistema di trasporto basato su gomma, l’utente c
 
 ### Team
 - [Alfredo](https://github.com/mungowz)
-- [Denny](https://github.com/kekkokalko)
+- [Francesco](https://github.com/kekkokalko)
 
 
 Anno Accademico 2021/2022
